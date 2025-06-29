@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Gerenciador_Tarefas</string>
+    <string name="app_name">Gerenciador de Tarefas</string>
+    <string-array name="filtros_tarefa">
+        <item>Todas</item>
+        <item>Concluídas</item>
+        <item>Pendentes</item>
+    </string-array>
+
 </resources>

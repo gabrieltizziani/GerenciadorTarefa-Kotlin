@@ -74,5 +74,6 @@ class DetalhesActivity : AppCompatActivity() {
             Toast.makeText(this, "Tarefa excluída com sucesso", Toast.LENGTH_SHORT).show()
             finish()
         }
+
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.github.gabrieltizziani.gerenciador_tarefas.data.Tarefa
 
@@ -26,12 +27,20 @@ class TarefaAdapter(
 
     override fun onBindViewHolder(holder: TarefaViewHolder, position: Int) {
         val tarefa = tarefas[position]
+
         holder.titulo.text = tarefa.titulo
         holder.descricao.text = tarefa.descricao
 
+        // Troca o fundo se estiver concluída
+        if (tarefa.concluida) {
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.green_200))
+        } else {
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
+        }
+
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetalhesActivity::class.java)
-            intent.putExtra("idTarefa", tarefa.id)
+            intent.putExtra("idTarefa", tarefa.id.toLong())
             context.startActivity(intent)
         }
     }

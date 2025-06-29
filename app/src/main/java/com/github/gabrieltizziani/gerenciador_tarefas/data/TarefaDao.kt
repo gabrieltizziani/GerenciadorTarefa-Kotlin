@@ -23,4 +23,8 @@ interface TarefaDao {
     @Query("SELECT * FROM tarefas ORDER BY id DESC")
     fun buscarTodos(): List<Tarefa>
 
+    @Query("SELECT * FROM tarefas WHERE concluida = :status ORDER BY id DESC")
+    fun buscarPorStatus(status: Boolean): List<Tarefa>
+
+
 }
